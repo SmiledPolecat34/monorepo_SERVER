@@ -3,6 +3,12 @@ import { requireAuth } from "../middleware/auth.middleware.js";
 import User from "../models/User.js";
 
 const router = express.Router();
+/**
+ * @swagger
+ * tags:
+ *   name: User
+ *   description: Management des utilisateurs
+ */
 
 /**
  * @swagger

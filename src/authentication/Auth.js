@@ -11,6 +11,13 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 /**
  * @swagger
+ * tags:
+ *   name: Auth
+ *   description: Routes d'authentification
+ */
+
+/**
+ * @swagger
  * /api/auth/register:
  *   post:
  *     summary: Enregistrer un user
