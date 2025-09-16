@@ -21,7 +21,7 @@ app.use(express.json());
  * @swagger
  * tags:
  *   name: Auth
- *   description: Authentication routes
+ *   description: Routes d'authentification
  */
 app.use("/api", authRoutes);
 
@@ -29,14 +29,14 @@ app.use("/api", authRoutes);
  * @swagger
  * tags:
  *   name: User
- *   description: User routes
+ *   description: Routes des utilisateurs
  */
 app.use("/api", userRoutes);
 /**
  * @swagger
  * tags:
  *   name: Contacts
- *   description: Contact management
+ *   description: Management des contacts
  */
 // app.use("/", (req, res) => {
 //   res.send("Page de test de connexion");
