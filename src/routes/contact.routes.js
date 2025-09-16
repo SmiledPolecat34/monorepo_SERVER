@@ -45,6 +45,55 @@ router.get("/contacts", requireAuth, async (req, res) => {
 
 /**
  * @swagger
+ * /api/contacts/{id}:
+ *   get:
+ *     summary: Récupérer un contact par son ID
+ *     tags: [Contacts]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: L'ID du contact
+ *     responses:
+ *       200:
+ *         description: Détails du contact
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Contact'
+ *       404:
+ *         description: Contact non trouvé
+ *       401:
+ *         description: Non autorisé
+ *       500:
+ *         description: Erreur du serveur
+ */
+router.get("/contacts/:id", requireAuth, async (req, res) => {
+  try {
+    const contact = await Contact.findById(req.params.id);
+
+    if (!contact) {
+      return res.status(404).json({ msg: "Contact not found" });
+    }
+
+    // Pour s'assurer que l'utilisateur possède le contact
+    if (contact.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "Not authorized" });
+    }
+
+    res.json(contact);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+/**
+ * @swagger
  * /api/contacts:
  *   post:
  *     summary: Créer un nouveau contact

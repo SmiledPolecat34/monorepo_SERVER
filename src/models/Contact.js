@@ -33,6 +33,9 @@ const contactSchema = new mongoose.Schema({
   },
 });
 
+// etre sur qu'il y ait qu'un seul num par user
+contactSchema.index({ user: 1, phone: 1 }, { unique: true });
+
 const Contact = mongoose.model("Contact", contactSchema);
 
 export default Contact;

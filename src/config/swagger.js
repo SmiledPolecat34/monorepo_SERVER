@@ -7,7 +7,7 @@ const swaggerOptions = {
     openapi: "3.0.0",
     info: {
       title: "API de mon projet JS efrei",
-      version: "1.0.0",
+      version: "2.0.0",
       description:
         "Cette API permet de gérer des utilisateurs et leurs contacts.",
     },
@@ -35,6 +35,35 @@ const swaggerOptions = {
               type: "string",
             },
             phone: {
+              type: "string",
+            },
+          },
+        },
+        User: {
+          type: "object",
+          properties: {
+            email: {
+              type: "string",
+              format: "email",
+            },
+            password: {
+              type: "string",
+              format: "password",
+            },
+          },
+        },
+        Auth: {
+          type: "object",
+          properties: {
+            email: {
+              type: "string",
+              format: "email",
+            },
+            password: {
+              type: "string",
+              format: "password",
+            },
+            token: {
               type: "string",
             },
           },

@@ -24,6 +24,7 @@ app.use(express.json());
  *   description: Authentication routes
  */
 app.use("/api", authRoutes);
+
 /**
  * @swagger
  * tags:

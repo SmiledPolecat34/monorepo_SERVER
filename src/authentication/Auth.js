@@ -11,7 +11,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 /**
  * @swagger
- * /auth/register:
+ * /api/auth/register:
  *   post:
  *     summary: Enregistrer un user
  *     tags: [Auth]
@@ -63,7 +63,7 @@ router.post("/auth/register", async (req, res) => {
 
 /**
  * @swagger
- * /auth/login:
+ * /api/auth/login:
  *   post:
  *     summary: Login d'un user
  *     tags: [Auth]
