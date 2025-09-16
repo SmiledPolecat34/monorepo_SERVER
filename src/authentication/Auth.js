@@ -36,6 +36,8 @@ const JWT_SECRET = process.env.JWT_SECRET;
  *         description: User créé
  *       400:
  *         description: User déjà existant
+ *       404:
+ *        description: Ressource non trouvée
  *       500:
  *         description: Erreur serveur
  */
@@ -86,6 +88,10 @@ router.post("/auth/register", async (req, res) => {
  *         description: Login réussi
  *       400:
  *         description: Identifiants invalides
+ *       401:
+ *         description: Non autorisé
+ *       404:
+ *         description: Ressource non trouvée
  *       500:
  *         description: Erreur serveur
  */
