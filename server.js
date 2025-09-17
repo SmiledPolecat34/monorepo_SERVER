@@ -6,6 +6,7 @@ import swaggerDocs from "./src/config/swagger.js";
 import authRoutes from "./src/authentication/Auth.js";
 import userRoutes from "./src/routes/user.routes.js";
 import contactRoutes from "./src/routes/contact.routes.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ const MONGO_DB_NAME = process.env.MONGO_DB_NAME;
 const PORT = process.env.PORT;
 
 app.use(express.json());
+
+app.use(cors());
 
 /**
  * @swagger
