@@ -1,73 +1,74 @@
-# Project API Server
+# API du Projet
 
-This is the backend server for the application, providing a RESTful API for user authentication and contact management.
+Serveur backend pour l'application, fournissant une API RESTful pour l'authentification des utilisateurs et la gestion des contacts.
 
-## Features
+## Fonctionnalités
 
-- User registration and authentication with JWT.
-- CRUD operations for contacts.
-- Protected routes.
-- API documentation with Swagger.
+- Inscription et authentification des utilisateurs avec JWT.
+- Opérations CRUD pour les contacts.
+- Routes protégées.
+- Documentation de l'API avec Swagger.
 
-## Prerequisites
+## Prérequis
 
-- [Node.js](https://nodejs.org/) (v14 or later)
+- [Node.js](https://nodejs.org/) (v14 ou ultérieure)
 - [MongoDB](https://www.mongodb.com/)
 
-## Getting Started
+## Installation
 
-### 1. Installation
+1. **Clonez le dépôt**
 
-Clone the repository and install the dependencies:
+   ```bash
+   git clone <repository-url>
+   cd JS/SERVER
+   ```
 
-```bash
-git clone <repository-url>
-cd JS/SERVER
-npm install
-```
+2. **Installez les dépendances**
 
-### 2. Configuration
+   ```bash
+   npm install
+   ```
 
-Create a `.env` file in the root of the `JS/SERVER` directory and add the following environment variables. You can use the `.env.example` file as a template.
+3. **Configurez les variables d'environnement**
 
-```
-MONGO_DB_HOST=localhost
-MONGO_DB_PORT=27017
-MONGO_DB_NAME=mydatabase
-PORT=3000
-JWT_SECRET=your_super_secret_jwt_key
-```
+   Créez un fichier `.env` à la racine du projet et ajoutez les variables suivantes. Vous pouvez utiliser le fichier `.env.example` comme modèle.
 
-### 3. Running the Server
+   ```
+   MONGO_DB_HOST=localhost
+   MONGO_DB_PORT=27017
+   MONGO_DB_NAME=mydatabase
+   PORT=3000
+   JWT_SECRET=votre_cle_jwt_secrete
+   ```
 
-To start the server in development mode (with auto-reloading), run:
+## Scripts Disponibles
 
-```bash
-npm run start:dev
-```
+- **`npm run dev`**: Démarre le serveur en mode développement avec rechargement automatique (hot-reloading).
+- **`npm start`**: Démarre le serveur en mode production.
+- **`npm run lint`**: Analyse le code pour les erreurs de style et de syntaxe.
+- **`npm run lint:fix`**: Corrige automatiquement les erreurs de style et de syntaxe.
+- **`npm test`**: Lance les tests unitaires avec Jest.
+- **`npm run test2`**: Lance les tests en utilisant les modules VM expérimentaux de Node.js, ce qui peut être nécessaire pour les projets utilisant des modules ES6 avec Jest.
 
-The server will start on the port specified in your `.env` file (default is 3000).
+## Endpoints de l'API
 
-## API Documentation
+La documentation complète de l'API est disponible via Swagger à l'adresse [http://localhost:3000/api-docs](http://localhost:3000/api-docs) une fois le serveur démarré.
 
-Once the server is running, you can access the Swagger documentation in your browser at:
+### Authentification
 
-[http://localhost:3000/api-docs](http://localhost:3000/api-docs)
-
-## API Endpoints
-
-### Authentication
-
-- `POST /api/auth/register`: Register a new user.
-- `POST /api/auth/login`: Log in a user and receive a JWT.
-
-### User
-
-- `GET /api/profile`: Get the profile of the currently logged-in user (requires authentication).
+- `POST /api/auth/register`: Inscription d'un nouvel utilisateur.
+- `POST /api/auth/login`: Connexion d'un utilisateur et récupération d'un JWT.
 
 ### Contacts
 
-- `POST /api/contacts`: Create a new contact (requires authentication).
-- `GET /api/contacts`: Get all contacts for the logged-in user (requires authentication).
-- `PATCH /api/contacts/:id`: Update a contact (requires authentication).
-- `DELETE /api/contacts/:id`: Delete a contact (requires authentication).
+- `POST /api/contacts`: Crée un nouveau contact (nécessite une authentification).
+- `GET /api/contacts`: Récupère tous les contacts de l'utilisateur connecté (nécessite une authentification).
+- `PATCH /api/contacts/:id`: Met à jour un contact (nécessite une authentification).
+- `DELETE /api/contacts/:id`: Supprime un contact (nécessite une authentification).
+
+## Identifiants de Test
+
+Vous pouvez utiliser les identifiants suivants pour tester l'API. La base de données de test est nettoyée avant chaque exécution des tests.
+
+- **Email**: `test@example.com`
+- **Mot de passe**: `password123`
