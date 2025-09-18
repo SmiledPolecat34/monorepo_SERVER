@@ -48,7 +48,8 @@ app.use("/api", userRoutes);
 app.use("/api", contactRoutes);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-const mongoUri = `mongodb://${MONGO_DB_HOST}:${MONGO_DB_PORT}/${MONGO_DB_NAME}`;
+// const mongoUri = `mongodb://${MONGO_DB_HOST}:${MONGO_DB_PORT}/${MONGO_DB_NAME}`;
+const mongoUri = process.env.MONGO_URI;
 
 mongoose
   .connect(mongoUri)
